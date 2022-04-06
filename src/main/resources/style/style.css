@@ -1,0 +1,36 @@
+﻿* {
+
+}
+
+*/ some additions to bootstrap */
+
+body { font-family: areal; font-size: 18px; }
+
+h4 { font-weight: bold; }
+
+.m-top-80 { margin-top: 80px; }
+
+.alright { text-align: right; }
+
+input { color: #121212; }
+
+.clear { clear: both !important; }
+
+.min-w-200 { min-width: 200px !important; }
+.min-w-300 { min-width: 300px !important; }
+
+.max-h-120 { max-height: 120px !important; }
+
+.logout-wrapper { width: 220px; text-align: center; }
+
+/* if we'll need it
+@media only screen and (max-width: 850px) {
+.d-md-none { display: none !important; }
+}
+*/
+
+@media screen and (max-width:320px) {
+    body {
+            min-height: 1110px !important;
+    }
+}
