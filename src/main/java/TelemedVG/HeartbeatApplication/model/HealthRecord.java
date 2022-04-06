@@ -16,4 +16,8 @@ public class HealthRecord {
     private int heartBeat;
     private String comments;
 
+
+    public HealthRecord() {
+    }
+
 }
