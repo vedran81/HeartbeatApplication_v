@@ -20,6 +20,7 @@ public class HealthRecord {
     private int systole;
     private int diastole;
     private int heartBeat;
+    private String comments;
 
 
     public HealthRecord() {
@@ -72,8 +73,4 @@ public class HealthRecord {
     public void setComments(String comments) {
         this.comments = comments;
     }
-
-    private String comments;
-
-
 }
