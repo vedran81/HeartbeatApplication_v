@@ -24,7 +24,7 @@ public class HealthRecordController {
         model.addAttribute("records", repository.findAll());
         model.addAttribute("record", new HealthRecord()); // empty user for adding new
 
-        return "patientInformationEntry";
+        return "patient_information_entry";
     }
 
     @GetMapping("/add")
