@@ -8,6 +8,8 @@ body { font-family: areal; font-size: 18px; }
 
 h4 { font-weight: bold; }
 
+/*tr:nth-child(odd) {background-color: #eeeeee}*/
+
 .m-top-80 { margin-top: 80px; }
 
 .alright { text-align: right; }
