@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Date;
+
 @Controller
 public class PatientsHealthRecordsController {
 
@@ -21,6 +23,6 @@ public class PatientsHealthRecordsController {
         model.addAttribute("records", repository.findAll());
         model.addAttribute("record", new HealthRecord()); // empty user for adding new
 
-        return "patientsHealthRecords";
+        return "patients_health_records";
     }
 }
