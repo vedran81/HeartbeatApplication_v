@@ -10,10 +10,7 @@
 </head>
 
 
-<body class="container">
-
-
-
+<body>
 
 <div class="col-12">
     <div class="row max-h-120">
@@ -46,7 +43,8 @@
                 </div>=
                 <div class="row">
 
-                    <form th:action="@{add}" class="col-5">
+                    <form th:action="add" class="col-5">
+
                         <label class="d-block mb-0">Ime:</label>
                         <input  th:field="${newUser.firstName}" class="col-m-3 col-m-4 col-md-5 col-sm-5 min-w-200 mb-2 form-control">
 
@@ -70,7 +68,7 @@
 
                         <div class="clear"></div>
 
-                        <button type="button" class="btn mb-5 btn-danger"><b>SPREMI</b></button>
+                        <button type="submit" class="btn mb-5 btn-danger"><b>SPREMI</b></button>
                     </form>
 
                 </div>
@@ -79,31 +77,6 @@
         <div class="col-lg-3 d-sm-none d-md-none d-lg-block justify text-start"></div>
     </div>
 </div>
-
-<table class="app_users">
-    <tr>
-        <th>Id</th>
-        <th>Ime</th>
-        <th>Prezime</th>
-        <th>Datum rođenja</th>
-        <th>Telefon/Mobitel</th>
-        <th>E-mail</th>
-        <th>Napomena</th>
-        <th>Akcije</th>
-
-    </tr>
-    <tr th:each="user : ${app_user}">
-        <td th:text="${user.id}">12354</td>
-        <td th:text="${user.firstName}">Marko</td>
-        <td th:text="${user.lastName}">Markić</td>
-        <td th:text="${user.dateOfBirth}"></td>
-        <td th:text="${user.phoneNumber}"></td>
-        <td th:text="${user.eMail}"></td>
-        <td th:text="${user.comments}"></td>
-        <td><a th:href="@{delete(id=${user.id})}">delete</a></td>
-    </tr>
-</table>
-
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

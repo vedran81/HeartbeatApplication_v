@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="app_users">
+    <tr>
+        <th>Id</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Datum rođenja</th>
+        <th>Telefon/Mobitel</th>
+        <th>E-mail</th>
+        <th>Napomena</th>
+        <th>Akcije</th>
+
+    </tr>
+    <tr th:each="user : ${app_user}">
+        <td th:text="${user.id}">12354</td>
+        <td th:text="${user.firstName}">Marko</td>
+        <td th:text="${user.lastName}">Markić</td>
+        <td th:text="${user.dateOfBirth}"></td>
+        <td th:text="${user.phoneNumber}"></td>
+        <td th:text="${user.eMail}"></td>
+        <td th:text="${user.comments}"></td>
+        <td><a th:href="@{delete(id=${user.id})}">delete</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
