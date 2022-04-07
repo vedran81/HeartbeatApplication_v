@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+telemeddb.mv.db
+telemeddb.trace.db
