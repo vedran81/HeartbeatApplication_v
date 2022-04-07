@@ -46,10 +46,11 @@
 
                     <table class="table">
                         <tr>
-                            <th>Ime</th>
-                            <th>Prezime</th>
-                            <th>Datum rođenja</th>
-                            <th>Akcije</th>
+                            <th>Datum</th>
+                            <th>Sistolički tlak</th>
+                            <th>Dijastolički tlak</th>
+                            <th>Broj otkucaja srca</th>
+                            <th>Opis stanja</th>
 
                         </tr>
                         <tr th:each="record : ${records}">
@@ -62,20 +63,21 @@
                     </table>
 
                     <form th:action="@{add}">
-                        <label class="form-label d-block mb-2">Sistolički tlak:</label>
-                        <input th:field="${healthRecordForm.systole}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="sistoličkiTlak"/>
+                        <label class="d-block mb-2">Sistolički tlak:</label>
+                        <input th:field="${record.systole}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="sistoličkiTlak"/>
 
-                        <label class="form-label d-block mb-2">Dijastolički tlak:</label>
-                        <input th:field="${healthRecordForm.diastole}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="dijastoličkiTlak"/>
+                        <label class="d-block mb-2">Dijastolički tlak:</label>
+                        <input th:field="${record.diastole}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="dijastoličkiTlak"/>
 
-                        <label class="form-label d-block mb-2">Broj otkucaja srca:</label>
-                        <input th:field="${healthRecordForm.heartBeat}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="brojOtkucajaSrca"/>
+                        <label class="d-block mb-2">Broj otkucaja srca:</label>
+                        <input th:field="${record.heartBeat}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="brojOtkucajaSrca"/>
 
-                        <label class="form-label d-block mb-2" for="subject">Opis stanja:</label>
-                        <textarea th:field="${healthRecordForm.comments}" class="col-xl-4 col-lg-5 col-md-6 col-sm-6 min-w-300 text-center mb-4" id="subject" name="subject" placeholder="Opišite kako se osjećate..." style="height:200px"></textarea>
+                        <label class="d-block mb-2" for="subject">Opis stanja:</label>
+                        <textarea th:field="${record.comments}" class="col-xl-4 col-lg-5 col-md-6 col-sm-6 min-w-300 text-center mb-4" id="subject" name="subject" placeholder="Opišite kako se osjećate..." style="height:200px"></textarea>
+
                         <div class="clear"></div>
 
-                        <button type="button" class="btn mb-5 btn-danger"><b>SPREMI</b></button>
+                        <button type="submit" class="btn mb-5 btn-danger"><b>SPREMI</b></button>
                     </form>
 
                 </div>
