@@ -11,17 +11,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/add_health_record")
+@RequestMapping("add_health_record")
 public class HealthRecordController {
 
     @Autowired
     HealthRecordRepository repository;
 
+    @GetMapping("/list")
+    public String list(Model model) {
+        System.out.println("Listing all records ...");
+
+        model.addAttribute("records", repository.findAll());
+        model.addAttribute("record", new HealthRecord()); // empty user for adding new
+
+        return "patientInformationEntry";
+    }
 
     @GetMapping("/add")
-    public String add(Model model, HealthRecord patientHealthRecordForm) {
-        model.addAttribute("healthRecordForm", new HealthRecord());
-        repository.save(patientHealthRecordForm);
-        return "redirect:/add_health_record";
+    public String add(HealthRecord oneHealthRecord) {
+        System.out.println("Adding new record ...");
+        repository.save(oneHealthRecord);
+        return "redirect:/add_health_record/list";
     }
 }
