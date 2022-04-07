@@ -17,7 +17,7 @@ public class AppUserController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("user", repository.findAll());
+        model.addAttribute("app_users", repository.findAll());
 
         return "app_user/list";
     }
