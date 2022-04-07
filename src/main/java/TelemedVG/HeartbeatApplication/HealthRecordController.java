@@ -17,20 +17,13 @@ public class HealthRecordController {
     @Autowired
     HealthRecordRepository repository;
 
-    @GetMapping("/list")
-    public String list(Model model) {
-        System.out.println("Listing all records ...");
+    @GetMapping("/add")
+    public String add(HealthRecord oneHealthRecord, Model model) {
 
         model.addAttribute("records", repository.findAll());
-        model.addAttribute("record", new HealthRecord()); // empty user for adding new
+        model.addAttribute("record", new HealthRecord());
 
-        return "patient_information_entry";
-    }
-
-    @GetMapping("/add")
-    public String add(HealthRecord oneHealthRecord) {
-        System.out.println("Adding new record ...");
         repository.save(oneHealthRecord);
-        return "redirect:/add_health_record/list";
+        return "patient_information_entry";
     }
 }
