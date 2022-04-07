@@ -45,25 +45,22 @@
 
                     <form th:action="add" class="col-5">
 
-                        <label class="d-block mb-0">Ime:</label>
+                        <label class="form-label">Ime:</label>
                         <input  th:field="${newUser.firstName}" class="col-m-3 col-m-4 col-md-5 col-sm-5 min-w-200 mb-2 form-control">
 
-                        <label class="d-block mb-0">Prezime:</label>
+                        <label class="form-label">Prezime:</label>
                         <input  th:field="${newUser.lastName}" class="col-m-3 col-m-4 col-md-5 col-sm-5 min-w-200 mb-2 form-control">
 
-                        <label class="d-block mb-0">Datum rođenja:</label>
+                        <label class="form-label">Datum rođenja:</label>
                         <input  th:field="${newUser.dateOfBirth}" class="col-m-3 col-m-4 col-md-5 col-sm-5 min-w-200 text-center mb-2 form-control" type="date">
 
-                        <label class="d-block mb-0">Telefon/Mobitel:</label>
+                        <label class="form-label">Telefon/Mobitel:</label>
                         <input  th:field="${newUser.phoneNumber}" class="col-m-3 col-m-4 col-md-5 col-sm-5 min-w-200 mb-2 form-control">
 
-                        <label class="d-block mb-0">E-mail:</label>
+                        <label class="form-label">E-mail:</label>
                         <input  th:field="${newUser.eMail}" class="col-m-3 col-m-4 col-md-5 col-sm-5 min-w-200 mb-2 form-control">
 
-                        <label class="d-block mb-0">ID:</label>
-                        <input  th:field="${newUser.id}" class="col-m-3 col-m-4 col-md-5 col-sm-5 min-w-200 mb-2 form-control">
-
-                        <label class="d-block mb-2">Napomene:</label>
+                        <label class="form-label">Napomene:</label>
                         <input  th:field="${newUser.comments}"  class="col-xl-4 col-lg-5 col-md-6 col-sm-6 min-w-300 mb-4 form-control" style="height:200px" placeholder="Dodatne napomene o pacijentu...">
 
                         <div class="clear"></div>

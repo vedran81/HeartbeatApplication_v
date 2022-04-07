@@ -27,7 +27,7 @@ public class AppUserController {
         model.addAttribute("newUser", new AppUser());
 
         repository.save(userForm);
-        return "redirect:/app_user/list";
+        return "/app_user/add";
     }
 
 }
