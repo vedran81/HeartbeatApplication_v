@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
+import java.util.Random;
 
 @Entity
 @Table(name = "app_users")
@@ -27,7 +28,7 @@ public class AppUser {
     private String pin;
 
     public AppUser() {
-
+        pinGenerator();
     }
 
     public String getComments() {
@@ -106,7 +107,13 @@ public class AppUser {
         return pin;
     }
 
-    public void setPin(String pin) {
-        this.pin = pin;
+    public void setPin(String pin) { this.pin = pin; }
+
+    private String pinGenerator() {
+        Random random = new Random();
+        int lower = 1000;
+        int upper = 9999;
+        pin = String.valueOf(random.nextInt(upper - lower + 1) + lower);
+        return pin;
     }
 }

@@ -2,10 +2,7 @@ package TelemedVG.HeartbeatApplication.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -22,6 +19,9 @@ public class HealthRecord {
     private int heartBeat;
     private String comments;
 
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private AppUser appUser;
 
     public HealthRecord() {
     }

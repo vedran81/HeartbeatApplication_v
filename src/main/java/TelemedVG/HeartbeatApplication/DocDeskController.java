@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Random;
+
 @Controller
 @RequestMapping("docdesk")
 public class DocDeskController {
@@ -17,14 +19,13 @@ public class DocDeskController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("app_users", repository.findAll());
+        model.addAttribute("app_users", repository.findAllByType(1));
 
         return "docdesk/list";
     }
 
-
     @GetMapping("/add")
-    public String add(AppUser userForm, Model model){
+    public String add(AppUser userForm){
 
         repository.save(userForm);
         return "redirect:/docdesk/list";
@@ -37,4 +38,10 @@ public class DocDeskController {
         return "docdesk/show_add_form";
     }
 
+    @GetMapping("/show_patient_information")
+    public String showPatientInformationById(Model model, int userId) {
+        model.addAttribute("app_users", repository.findAllById(userId));
+
+        return "docdesk/show_patient_information";
+    }
 }
