@@ -12,7 +12,7 @@ public class HealthRecord {
     @GeneratedValue
     private int id;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date dateOfInput;
     private int systole;
     private int diastole;
@@ -24,6 +24,7 @@ public class HealthRecord {
     private AppUser appUser;
 
     public HealthRecord() {
+        this.dateOfInput = new Date();
     }
 
     public int getId() {

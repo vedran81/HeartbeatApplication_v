@@ -26,9 +26,9 @@ public class PatientsHealthRecordsController {
     }
 
     @GetMapping("/listRecordsForPatients")
-    public String listRecordsForPatients(int userId, Model model) {
-        System.out.println("Listing all records ..." + userId);
-        model.addAttribute("records", repository.findAllById(userId));
+    public String listRecordsForPatients(Model model) {
+        System.out.println("Listing all records ...");
+        model.addAttribute("records", repository.findAll());
 
         return "redirect:/list";
     }
