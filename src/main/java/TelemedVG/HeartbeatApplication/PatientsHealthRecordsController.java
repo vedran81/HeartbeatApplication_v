@@ -1,5 +1,4 @@
 package TelemedVG.HeartbeatApplication;
-
 import TelemedVG.HeartbeatApplication.model.HealthRecord;
 import TelemedVG.HeartbeatApplication.model.HealthRecordRepository;
 import org.springframework.ui.Model;
