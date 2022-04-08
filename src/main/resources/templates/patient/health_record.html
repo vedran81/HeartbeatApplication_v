@@ -53,10 +53,10 @@
 
 
                     <form th:action="@{add}">
-                        <label class="d-block mb-2">Sistolički tlak:</label>
+                        <label class="d-block mb-2">Sistolički tlak (veći broj):</label>
                         <input th:field="${record.systole}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="sistoličkiTlak"/>
 
-                        <label class="d-block mb-2">Dijastolički tlak:</label>
+                        <label class="d-block mb-2">Dijastolički tlak (manji broj):</label>
                         <input th:field="${record.diastole}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" name="dijastoličkiTlak"/>
 
                         <label class="d-block mb-2">Broj otkucaja srca:</label>
