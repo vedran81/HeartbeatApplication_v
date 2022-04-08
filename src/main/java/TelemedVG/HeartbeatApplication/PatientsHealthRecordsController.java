@@ -18,12 +18,19 @@ public class PatientsHealthRecordsController {
     HealthRecordRepository repository;
 
     @GetMapping("/list")
-    public String list(Model model, int id) {
-        System.out.println("Listing all records ...");
+    public String list(Model model) {
 
         model.addAttribute("records", repository.findAll());
         model.addAttribute("record", new HealthRecord()); // empty user for adding new
 
         return "patient/patients_health_records";
+    }
+
+    @GetMapping("/listRecordsForPatients")
+    public String listRecordsForPatients(int userId, Model model) {
+        System.out.println("Listing all records ..." + userId);
+        model.addAttribute("records", repository.findAllById(userId));
+
+        return "redirect:/list";
     }
 }

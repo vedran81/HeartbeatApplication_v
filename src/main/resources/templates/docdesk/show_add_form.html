@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:margin-left="http://www.w3.org/1999/xhtml"
+      xmlns:padding="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>UNOS NOVOG KORISNIKA</title>
@@ -36,15 +37,32 @@
             <div class="justify text-center">
                 <div class="row mb-5">
                     <div class="col-lg-12 col-5">
-                        <h4>Unesite informacije o pacijentu:</h4>
+                        <h4>Unesite informacije o korisniku:</h4>
                     </div>
-                    <div class="col-lg-4 col-2">
-                    </div>
-
                 </div>
+
+
+
                 <div class="row">
 
-                    <form th:action="@{add}" >
+                    <form th:action="@{add}">
+
+                        <div class="col-lg-4 col-2">
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" th:field="${newUser.type}" type="radio" name="1" id="1" value="1">
+                            <label class="form-check-label" for="1">
+                                PACIJENT
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" th:field="${newUser.type}" type="radio" name="2" id="2" value="2">
+                            <label class="form-check-label" for="2">
+                                DOKTOR
+                            </label>
+                        </div>
+                        <br>
+                        <br>
 
                         <label class="d-block mb-2">Ime:</label>
                         <input  th:field="${newUser.firstName}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5">
@@ -53,7 +71,7 @@
                         <input  th:field="${newUser.lastName}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5">
 
                         <label class="d-block mb-2">Datum rođenja:</label>
-                        <input  th:field="${newUser.dateOfBirth}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" type="date">
+                        <input  th:field="${newUser.dateOfBirth}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5" type="date" data-date-format="dd-mm-yyyy">
 
                         <label class="d-block mb-2">Telefon/Mobitel:</label>
                         <input  th:field="${newUser.phoneNumber}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5">
@@ -62,7 +80,7 @@
                         <input  th:field="${newUser.eMail}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-5">
 
                         <label class="d-block mb-2">Napomene:</label>
-                        <input  th:field="${newUser.comments}"  class="col-xl-4 col-lg-5 col-md-6 col-sm-6 min-w-300 text-center mb-4" id="subject" name="subject" placeholder="Dodatne napomene..." style="height:200px"></textarea>
+                        <textarea th:field="${newUser.comments}"  class="col-xl-4 col-lg-5 col-md-6 col-sm-6 min-w-300 text-center mb-4" id="subject" name="subject" placeholder="Dodatne napomene..." style="height:200px"></textarea>
 
                         <div class="clear"></div>
 
