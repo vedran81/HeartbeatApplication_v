@@ -25,4 +25,12 @@ public class PatientsHealthRecordsController {
 
         return "patients_health_records";
     }
+
+    @GetMapping("/listRecordsForPatients")
+    public String listRecordsForPatients(int userId, Model model) {
+        System.out.println("Listing all records ..." + userId);
+        model.addAttribute("records", repository.findAllById(userId));
+
+        return "redirect:/list";
+    }
 }
