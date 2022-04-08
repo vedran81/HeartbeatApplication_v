@@ -17,11 +17,8 @@ public class HealthRecordController {
     @Autowired
     HealthRecordRepository repository;
 
-    @GetMapping("/list")
-    public String list(Model model) {
-        System.out.println("Listing all records ...");
-
-        model.addAttribute("records", repository.findAll());
+    @GetMapping("/show_health_record")
+    public String showAddRecord(Model model) {
         model.addAttribute("record", new HealthRecord()); // empty user for adding new
 
         return "patient/health_record";
