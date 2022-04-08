@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Date;
 
 @Controller
+@RequestMapping("patient")
 public class PatientsHealthRecordsController {
 
     @Autowired
@@ -18,12 +19,11 @@ public class PatientsHealthRecordsController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        System.out.println("Listing all records ...");
 
         model.addAttribute("records", repository.findAll());
         model.addAttribute("record", new HealthRecord()); // empty user for adding new
 
-        return "patients_health_records";
+        return "patient/patients_health_records";
     }
 
     @GetMapping("/listRecordsForPatients")
