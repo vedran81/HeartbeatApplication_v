@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>UNOS STANJA PACIJENTA</title>
@@ -44,27 +44,7 @@
                 </div>
                 <div class="row">
 
-                    <table class="table">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Datum</th>
-                                <th>Sistolički tlak</th>
-                                <th>Dijastolički tlak</th>
-                                <th>Broj otkucaja srca</th>
-                                <th>Opis stanja</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="record : ${records}">
-                                <td th:text="${record.dateOfInput}">9.9.1973</td>
-                                <td th:text="${record.systole}">120</td>
-                                <td th:text="${record.diastole}">80</td>
-                                <td th:text="${record.heartBeat}">40</td>
-                                <td th:text="${record.comments}">Ful sam sjajno!</td>
-                            </tr>
-                        <tbody>
-                    </table>
 
                     <form th:action="@{add}">
                         <label class="d-block mb-2">Sistolički tlak:</label>
