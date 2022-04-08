@@ -15,7 +15,7 @@ public class HealthRecordController {
     @Autowired
     HealthRecordRepository repository;
 
-    @GetMapping("/show_health_record")
+    @GetMapping("/showHealthRecord")
     public String showAddRecord(Model model) {
         model.addAttribute("record", new HealthRecord()); // empty user for adding new
 

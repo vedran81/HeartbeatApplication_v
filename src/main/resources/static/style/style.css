@@ -5,7 +5,10 @@
 */ some additions to bootstrap */
 
 body { font-family: areal; font-size: 18px; }
+
 label { font-family: areal; font-size: 18px; }
+
+button { min-width: 110px }
 
 h4 { font-weight: bold; }
 
@@ -25,6 +28,7 @@ input { color: #121212; }
 .max-h-120 { max-height: 120px !important; }
 
 .logout-wrapper { width: 220px; text-align: center; }
+
 
 /* if we'll need it
 @media only screen and (max-width: 850px) {
