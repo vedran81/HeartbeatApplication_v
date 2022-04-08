@@ -18,8 +18,7 @@ public class PatientsHealthRecordsController {
     HealthRecordRepository repository;
 
     @GetMapping("/list")
-    public String list(Model model, int id) {
-        System.out.println("Listing all records ...");
+    public String list(Model model) {
 
         model.addAttribute("records", repository.findAll());
         model.addAttribute("record", new HealthRecord()); // empty user for adding new
