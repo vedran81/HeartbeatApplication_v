@@ -28,5 +28,4 @@ public class HealthRecordController {
         repository.save(oneHealthRecord);
         return "redirect:/patient/list";
     }
-
 }

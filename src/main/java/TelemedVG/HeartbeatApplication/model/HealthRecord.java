@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 @Table(name = "health_record")
 public class HealthRecord {
@@ -12,7 +13,7 @@ public class HealthRecord {
     @GeneratedValue
     private int id;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
     private Date dateOfInput;
     private int systole;
     private int diastole;
