@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("landing_page")
 public class TelemedLoginPageController {
+
     @GetMapping("/showLoginPage")
     public String showLoginPage() {
 
