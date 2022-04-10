@@ -24,7 +24,7 @@ public class TelemedLoginPageController {
 /*    @Autowired
     HealthRecordRepository healthRecordRepository; */
 
-    @GetMapping("/showLoginPage")
+    @GetMapping("/login")
     public String showLoginPage(Model model) {
         AppUser loginTryUser = new AppUser();
         loginTryUser.setPin("");
@@ -48,11 +48,13 @@ public class TelemedLoginPageController {
             } else {
                 int userId = firstUserWithPin.getId();
                 System.out.println("user found, id = " + userId);
+
+                // e to treba taj userId proslijediti ovamo
+
+                return "redirect:patient/list";
+
             }
         }
-
-        // e to treba taj userId proslijediti ovamo
-
-        return "redirect:patient/list";
+        return "redirect:/login";
     }
 }
