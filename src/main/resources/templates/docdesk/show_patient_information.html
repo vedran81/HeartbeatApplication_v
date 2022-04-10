@@ -33,22 +33,19 @@
         <div class="col-lg-3 d-sm-none d-md-none d-lg-block text-end"></div>
         <div class="col-lg-6 col-12">
             <div class="justify text-center">
-                <div class="row mb-5 mt-3">
-                    <tr th:each="user : ${app_users}">
-                        <div class="col-lg-4 col-5">
-                            <h4>
+                <div class="row mb-5">
+                    <div class="col-lg-9 col-5">
+                        <h4>
+                            <tr th:each="user : ${app_users}">
                                 <th th:text="${user.firstName}"></th>
                                 <th th:text="${user.lastName}"></th>
-                            </h4>
-                        </div>
-                        <div class="col-lg-4 col-2"></div>
-                        <div class="col-lg-4 col-5">
-                            <h4>
                                 PIN
                                 <th th:text= "${user.pin}"></th>
-                            </h4>
-                        </div>
-                    </tr>
+                            </tr>
+                        </h4>
+
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,25 +66,29 @@
     </thead>
     <tbody>
     </tr>
-    <tr th:each="record : ${records}">
-        <td th:text="${record.dateOfInput}">9.9.1973</td>
-        <td th:text="${record.systole}">120</td>
-        <td th:text="${record.diastole}">80</td>
-        <td th:text="${record.heartBeat}">40</td>
-        <td th:text="${record.comments}">Ful sam sjajno!</td>
+    <tr th:each="userId : ${record}">
+        <td th:text="${userId.dateOfInput}"></td>
+        <td th:text="${userId.systole}"></td>
+        <td th:text="${userId.diastole}"></td>
+        <td th:text="${userId.heartBeat}"></td>
+        <td th:text="${userId.comments}"></td>
     </tr>
     </tbody>
 </table>
 
+<form action="show_pressure_add_form">
+    <button type="submit" class="btn mb-5 btn-danger"><b>UNESI NOVO STANJE</b></button>
+</form>
+
 <div class="col-12">
-    <div class="row max-h-120 justify-content-center">
-        <div class="logout-wrapper">
-            <form action="show_add_form">
-                <button type="submit" class="btn mb-3 mt-4 btn-danger"><b>DODAJ NOVOG KORISNIKA</b></button>
-            </form>
+    <div class="row max-h-120">
+        <div class="col-lg-3 col-5 d-flex center">
+            <div class="logout-wrapper">
+            </div>
         </div>
     </div>
 </div>
+
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

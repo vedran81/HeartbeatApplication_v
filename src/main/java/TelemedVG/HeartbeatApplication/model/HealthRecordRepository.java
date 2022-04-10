@@ -4,9 +4,9 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface HealthRecordRepository extends CrudRepository<HealthRecord, Integer> {
+public interface HealthRecordRepository<H, I extends Number> extends CrudRepository<HealthRecord, Integer> {
 
     List<HealthRecord> findAll();
-    List<HealthRecord> findAllById(int id);
+    List<HealthRecord> findAllRecordsById(int id);
 
 }

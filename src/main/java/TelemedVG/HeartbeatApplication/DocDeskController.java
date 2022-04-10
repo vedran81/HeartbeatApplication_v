@@ -1,25 +1,31 @@
 package TelemedVG.HeartbeatApplication;
 
+import TelemedVG.HeartbeatApplication.model.HealthRecord;
 import TelemedVG.HeartbeatApplication.model.AppUser;
 import TelemedVG.HeartbeatApplication.model.AppUserRepository;
+import TelemedVG.HeartbeatApplication.model.HealthRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Random;
-
+@Service("DocDeskController")
 @Controller
 @RequestMapping("docdesk")
 public class DocDeskController {
 
     @Autowired
-    AppUserRepository repository;
+    AppUserRepository appUserRepository;
+
+    @Autowired
+    HealthRecordRepository healthRecordRepository;
 
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("app_users", repository.findAllByType(1));
+        model.addAttribute("app_users", appUserRepository.findAllByType(1));
 
         return "docdesk/list";
     }
@@ -27,7 +33,7 @@ public class DocDeskController {
     @GetMapping("/add")
     public String add(AppUser userForm){
 
-        repository.save(userForm);
+        appUserRepository.save(userForm);
         return "redirect:/docdesk/list";
     }
 
@@ -40,8 +46,24 @@ public class DocDeskController {
 
     @GetMapping("/show_patient_information")
     public String showPatientInformationById(Model model, int userId) {
-        model.addAttribute("app_users", repository.findAllById(userId));
+        model.addAttribute("app_users", appUserRepository.findAllById(userId));
+        model.addAttribute("record", healthRecordRepository.findAllRecordsById(userId));
 
         return "docdesk/show_patient_information";
     }
+
+    @GetMapping("/show_pressure_add_form")
+    public String showPressureAddForm(Model model) {
+        model.addAttribute("newPressure", new HealthRecord());
+
+        return "docdesk/show_pressure_add_form";
+    }
+
+    @GetMapping("/save_pressure")
+    public String savePressure(HealthRecord pressureForm) {
+        healthRecordRepository.save(pressureForm);
+
+        return "redirect:/docdesk/show_patient_information";
+    }
+
 }

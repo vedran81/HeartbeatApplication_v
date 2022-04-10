@@ -2,6 +2,7 @@ package TelemedVG.HeartbeatApplication.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -96,7 +97,7 @@ public class AppUser {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
