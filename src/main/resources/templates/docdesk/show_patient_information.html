@@ -39,9 +39,11 @@
                     <tr th:each="user : ${app_users}">
                         <div class="col-lg-4 col-5">
                             <h4>
+                                <div class="mb-3">
                                 <th th:text="${user.firstName}"></th>
                                 <th th:text="${user.lastName}"></th>
                                 <br>
+                                </div>
                             </h4>
                         </div>
                         <div class="col-lg-4 col-2"></div>

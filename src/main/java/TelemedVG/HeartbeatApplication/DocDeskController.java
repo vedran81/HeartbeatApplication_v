@@ -5,12 +5,16 @@ import TelemedVG.HeartbeatApplication.model.AppUser;
 import TelemedVG.HeartbeatApplication.model.AppUserRepository;
 import TelemedVG.HeartbeatApplication.model.HealthRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Date;
 
 @Service("DocDeskController")
 @Controller
@@ -65,5 +69,4 @@ public class DocDeskController {
 
         return "redirect:/docdesk/show_patient_information";
     }
-
 }

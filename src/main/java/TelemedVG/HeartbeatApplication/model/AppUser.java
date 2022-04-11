@@ -1,8 +1,5 @@
 package TelemedVG.HeartbeatApplication.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,7 +16,6 @@ public class AppUser {
     private String firstName;
     private String lastName;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
     private String eMail;
     private String phoneNumber;
