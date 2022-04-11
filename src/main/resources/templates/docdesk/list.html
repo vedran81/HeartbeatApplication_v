@@ -55,7 +55,7 @@
             <td th:text="${user.id}"></td>
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.lastName}"></td>
-            <td th:text="${user.dateOfBirth}"></td>
+            <td th:text="${#dates.format(user.dateOfBirth, 'dd.MM.yyyy')}"></td>
             <td><a th:href="@{/docdesk/show_patient_information(userId=${user.id})}">Odaberi pacijenta</a></td>
         </tr>
         </tbody>

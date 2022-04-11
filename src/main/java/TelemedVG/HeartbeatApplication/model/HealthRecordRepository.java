@@ -7,6 +7,6 @@ import java.util.List;
 public interface HealthRecordRepository<H, I extends Number> extends CrudRepository<HealthRecord, Integer> {
 
     List<HealthRecord> findAll();
-    List<HealthRecord> findAllRecordsById(int id);
+    List<HealthRecord> findAllRecordsByAppUserId(int id);
 
 }

@@ -57,7 +57,7 @@
                     <tr th:each="user : ${app_users}">
                         <div class="text-start">
                             <th><strong>Datum rođenja: </strong></th>
-                                <th th:text="${user.dateOfBirth}"></th>
+                                <th th:text="${#dates.format(user.dateOfBirth, 'dd.MM.yyyy')}"></th>
                                 <br>
                                 <th><strong>E-pošta:</strong></th>
                                 <th th:text="${user.eMail}"></th>
@@ -92,7 +92,7 @@
     <tbody>
     </tr>
     <tr th:each="userId : ${record}">
-        <td th:text="${userId.dateOfInput}"></td>
+        <td th:text="${#dates.format(userId.dateOfInput, 'dd.MM.yyyy HH:MM:SS')}"></td>
         <td th:text="${userId.systole}"></td>
         <td th:text="${userId.diastole}"></td>
         <td th:text="${userId.heartBeat}"></td>

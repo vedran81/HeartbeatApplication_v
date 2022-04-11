@@ -51,7 +51,7 @@ public class DocDeskController {
     @GetMapping("/show_patient_information")
     public String showPatientInformationById(Model model, int userId) {
         model.addAttribute("app_users", appUserRepository.findAllById(userId));
-        model.addAttribute("record", healthRecordRepository.findAllRecordsById(userId));
+        model.addAttribute("record", healthRecordRepository.findAllRecordsByAppUserId(userId));
 
         return "docdesk/show_patient_information";
     }
