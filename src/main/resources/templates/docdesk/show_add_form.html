@@ -65,7 +65,7 @@
                             <input  th:field="${newUser.dateOfBirth}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" type="date" data-date-format="dd-mm-yyyy">
 
                             <label class="d-block mb-2">Telefon/Mobitel:</label>
-                            <input  th:field="${newUser.phoneNumber}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4">
+                            <input th:field="${newUser.phoneNumber}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4" placeholder="098/4556-748" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
 
                             <label class="d-block mb-2">E-mail:</label>
                             <input  th:field="${newUser.eMail}" class="col-xl-3 col-lg-4 col-md-5 col-sm-5 min-w-200 text-center mb-4">

@@ -91,12 +91,12 @@
     </thead>
     <tbody>
     </tr>
-    <tr th:each="record : ${records}">
-        <td th:text="${record.dateOfInput}">9.9.1973</td>
-        <td th:text="${record.systole}">120</td>
-        <td th:text="${record.diastole}">80</td>
-        <td th:text="${record.heartBeat}">40</td>
-        <td th:text="${record.comments}">Ful sam sjajno!</td>
+    <tr th:each="userId : ${record}">
+        <td th:text="${userId.dateOfInput}"></td>
+        <td th:text="${userId.systole}"></td>
+        <td th:text="${userId.diastole}"></td>
+        <td th:text="${userId.heartBeat}"></td>
+        <td th:text="${userId.comments}"></td>
     </tr>
     </tbody>
 </table>
