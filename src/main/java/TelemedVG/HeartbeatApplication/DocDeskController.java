@@ -4,6 +4,7 @@ import TelemedVG.HeartbeatApplication.model.HealthRecord;
 import TelemedVG.HeartbeatApplication.model.AppUser;
 import TelemedVG.HeartbeatApplication.model.AppUserRepository;
 import TelemedVG.HeartbeatApplication.model.HealthRecordRepository;
+import org.h2.engine.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -36,14 +37,28 @@ public class DocDeskController {
 
     @GetMapping("/add")
     public String add(AppUser userForm){
+        if(userForm.getId() == 0) {
+            System.out.println("Adding new user....");
+        } else {
+            System.out.println("Changing existing user...");
+        }
 
         appUserRepository.save(userForm);
         return "redirect:/docdesk/list";
     }
 
+    @GetMapping("/edit")
+    public String showEditForm(Integer userId, Model model){
+        model.addAttribute("user", appUserRepository.findById(userId));
+
+        model.addAttribute("users", appUserRepository.findAll());
+        return "docdesk/show_add_form";
+    }
+
     @GetMapping("/show_add_form")
-    public String showAddForm(AppUser userForm, Model model) {
-        model.addAttribute("newUser", new AppUser());
+    public String showAddForm(Model model) {
+
+        model.addAttribute("user", new AppUser());
 
         return "docdesk/show_add_form";
     }

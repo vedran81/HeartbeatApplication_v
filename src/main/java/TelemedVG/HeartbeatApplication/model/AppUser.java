@@ -24,8 +24,9 @@ public class AppUser {
     private int type;
     private String pin;
 
+
     public AppUser() {
-        pinGenerator();
+        generatePin();
     }
 
     public String getComments() {
@@ -106,7 +107,7 @@ public class AppUser {
 
     public void setPin(String pin) { this.pin = pin; }
 
-    private String pinGenerator() {
+    private String generatePin() {
         Random random = new Random();
         int lower = 1000;
         int upper = 9999;
@@ -114,3 +115,4 @@ public class AppUser {
         return pin;
     }
 }
+
