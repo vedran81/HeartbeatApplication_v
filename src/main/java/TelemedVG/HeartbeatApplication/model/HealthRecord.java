@@ -25,7 +25,20 @@ public class HealthRecord {
     @JoinColumn(name = "userId")
     private AppUser appUser;
 
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
+    }
+
     public HealthRecord() {
+        this.dateOfInput = new Date();
+    }
+
+    public HealthRecord(AppUser owner) {
+        this.appUser = owner;
         this.dateOfInput = new Date();
     }
 

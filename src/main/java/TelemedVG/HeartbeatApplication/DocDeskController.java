@@ -64,7 +64,7 @@ public class DocDeskController {
     }
 
     @GetMapping("/show_patient_information")
-    public String showPatientInformationById(Model model, int userId) {
+    public String showPatientInformationById(Model model, Integer userId) {
         model.addAttribute("app_users", appUserRepository.findAllById(userId));
         model.addAttribute("record", healthRecordRepository.findAllRecordsByAppUserId(userId));
 
@@ -72,16 +72,21 @@ public class DocDeskController {
     }
 
     @GetMapping("/show_pressure_add_form")
-    public String showPressureAddForm(Model model) {
-        model.addAttribute("newPressure", new HealthRecord());
+    public String showPressureAddForm(Model model, AppUser user) {
+        model.addAttribute("newPressure", new HealthRecord(user));
 
         return "docdesk/show_pressure_add_form";
     }
 
     @GetMapping("/save_pressure")
-    public String savePressure(HealthRecord pressureForm) {
+    public String savePressure(HealthRecord pressureForm, Integer userId) {
+        System.out.println("saving form for userid " + pressureForm.getAppUser().getId());
+        System.out.println("systole " + pressureForm.getSystole());
+
         healthRecordRepository.save(pressureForm);
 
-        return "redirect:/docdesk/show_patient_information";
+        //return "redirect:@{/docdesk/show_patient_information(userId=${pressureForm.getAppUser().getId()})}";
+        return "redirect:/dockdesk/show_patient_information";
+
     }
 }
