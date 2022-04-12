@@ -58,7 +58,7 @@
                             </thead>
                             <tbody>
                                 <tr th:each="record : ${records}">
-                                    <td th:text="${record.dateOfInput}">9.9.1973</td>
+                                    <td th:text="${#dates.format(record.dateOfInput, 'dd.MM.yyyy HH:MM')}">9.9.1973</td>
                                     <td th:text="${record.systole}">120</td>
                                     <td th:text="${record.diastole}">80</td>
                                     <td th:text="${record.heartBeat}">40</td>
