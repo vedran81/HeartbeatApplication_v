@@ -28,7 +28,7 @@ public class HeartbeatApplicationRepositoryIntegrationTest {
     AppUserRepository appUserRepository;
 
     @Test
-    public void testFindByID() {
+    public void testFindUserByID() {
         log.info("Test FindByID executing.");
 
         //given
@@ -40,8 +40,24 @@ public class HeartbeatApplicationRepositoryIntegrationTest {
         // when
         AppUser foundUser = appUserRepository.findById(newUser.getId());
 
-
         // then
         Assert.assertEquals(foundUser.getDateOfBirth().getTime(), startTest.getTime());
+    }
+
+    @Test
+    public void testFindRecordByHeartBeat() {
+        log.info("Test FindByHeartBeat executing.");
+
+        //given
+        Date startTest = new Date();
+        HealthRecord newRecord = new HealthRecord(150);
+        newRecord.setDateOfInput(startTest);
+        healthRecordRepository.save(newRecord);
+
+        // when
+        HealthRecord foundRecord = healthRecordRepository.findByHeartBeat(150);
+
+        // then
+        Assert.assertEquals(foundRecord.getDateOfInput().getTime(), startTest.getTime());
     }
 }
