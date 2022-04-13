@@ -1,4 +1,5 @@
 package TelemedVG.HeartbeatApplication;
+import TelemedVG.HeartbeatApplication.model.AppUser;
 import TelemedVG.HeartbeatApplication.model.AppUserRepository;
 import TelemedVG.HeartbeatApplication.model.HealthRecord;
 import TelemedVG.HeartbeatApplication.model.HealthRecordRepository;
@@ -17,13 +18,15 @@ public class PatientsHealthRecordsController {
     @Autowired
     HealthRecordRepository healthRecordRepository;
 
-    @Autowired
-    AppUserRepository appUserRepository;
 
     @GetMapping("/list")
-    public String list(Model model) {
+    public String list(Model model, HttpSession session) {
+        AppUser user = (AppUser) session.getAttribute("user");
 
-        model.addAttribute("records", healthRecordRepository.findAll());
+        if(user == null)
+            return "redirect:/";
+
+        model.addAttribute("records", healthRecordRepository.findAllByAppUserId(user.getId()));
         model.addAttribute("record", new HealthRecord()); // empty user for adding new
 
         return "patient/patients_health_records";
