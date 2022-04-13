@@ -33,25 +33,24 @@ public class TelemedLoginPageController {
     @GetMapping("/get_id_for_login")
     public String userIdByLoginInfo(String eMail, String pin, Model model) {
 
-        System.out.println("searching user with email: " + eMail + " and pin: " + pin);
+        System.out.println("searching user with email: " + eMail + " and password: " + pin);
 
-        List<AppUser> usersWithPin = appUserRepository.findAllByPin(pin);
-        if (usersWithPin.size() == 0) {
-            System.out.println("no such pin");
-        } else {
-            AppUser firstUserWithPin = usersWithPin.get(0);
-            if (!Objects.equals(firstUserWithPin.geteMail(), eMail)) {
-                System.out.println("pin and email not matching");
-            } else {
-                int userId = firstUserWithPin.getId();
-                System.out.println("user found, id = " + userId);
-
-                // e to treba taj userId proslijediti ovamo
-
-                return "redirect:patient/list";
-
-            }
+        AppUser tryLoginUser = appUserRepository.findByEmail(eMail);
+        if (tryLoginUser == null) {
+            System.out.println("no such email");
+            return "redirect:/login";
         }
-        return "redirect:/login";
+
+        if (tryLoginUser.geteMail() != eMail) {
+            System.out.println("no user with such password and email");
+            return "redirect:/login";
+        } else {
+            System.out.println("user found, id = " + tryLoginUser.getId());
+
+            return "redirect:patient/______?id=" + tryLoginUser.getId();
+
+        }
     }
+
 }
+
