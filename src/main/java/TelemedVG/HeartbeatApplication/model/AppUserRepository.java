@@ -17,5 +17,6 @@ public interface AppUserRepository extends CrudRepository<AppUser, Integer> {
     List<AppUser> findById(int id);
 
 
+
 }
 

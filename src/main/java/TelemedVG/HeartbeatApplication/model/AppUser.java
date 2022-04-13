@@ -16,6 +16,7 @@ public class AppUser {
     private String firstName;
     private String lastName;
 
+
     private Date dateOfBirth;
     private String eMail;
     private String phoneNumber;
