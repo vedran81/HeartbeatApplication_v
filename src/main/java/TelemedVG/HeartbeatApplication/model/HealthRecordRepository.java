@@ -13,4 +13,7 @@ public interface HealthRecordRepository extends CrudRepository<HealthRecord, Int
     List<HealthRecord> findAll();
     List<HealthRecord> findAllRecordsByAppUserId(int id);
 
+    // metoda find All by AppUserId - traži sve TodoItem koji su od određenog korisnika
+    List<HealthRecord> findAllByAppUserId(int id);
+
 }
