@@ -17,15 +17,21 @@
             <div class="col-lg-3 col-5 d-flex justify-content-lg-end justify-content-center">
                 <img class="mt-4 d-none d-lg-inline-block" th:src="@{/img/welcome-small.jpg}" />
                 <div class="logout-wrapper d-block d-lg-none">
-                    <button type="button" class="btn btn-danger mt-5 mt-lg-4 mb-5 mb-lg-0"><b>POVRATAK</b></button>
+                    <form action="/">
+                        <button type="button" class="btn btn-danger mt-5 mt-lg-4 mb-5 mb-lg-0"><b>POVRATAK</b></button>
+                    </form>
                 </div>
             </div>
             <div class="col-lg-6 col-2">
             </div>
             <div class="col-lg-3 col-5 d-flex justify-content-lg-start justify-content-center">
                 <div class="logout-wrapper">
-                    <form action="/login">
+                    <form action="/logout">
                         <button type="submit" class="btn btn-danger mt-5 mt-lg-4 mb-5 mb-lg-0"><b>ODJAVA</b></button>
+                    </form>
+                    <div class="clear"></div>
+                    <form action="/">
+                        <button type="submit" class="btn btn-danger mt-5 mt-lg-4 mb-5 mb-lg-0 d-none d-lg-inline-block"><b>POVRATAK</b></button>
                     </form>
                 </div>
             </div>
@@ -37,12 +43,15 @@
                 <div class="justify text-center">
                     <div class="row mb-5">
                         <div class="col-lg-4 col-5">
-                            <h4>Pero Perić</h4>
+                            <h4>
+                                <th th:text="${user.firstName}"></th>
+                                <th th:text="${user.lastName}"></th>
+                            </h4>
                         </div>
                         <div class="col-lg-4 col-2">
                         </div>
                         <div class="col-lg-4 col-5">
-                            <h4>ID 125687</h4>
+                            <h4>PIN <th th:text="${user.pin}"></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -58,7 +67,7 @@
                             </thead>
                             <tbody>
                                 <tr th:each="record : ${records}">
-                                    <td th:text="${#dates.format(record.dateOfInput, 'dd.MM.yyyy HH:MM')}">9.9.1973</td>
+                                    <td th:text="${#dates.format(record.dateOfInput, 'dd.MM.yyyy HH:mm')}">9.9.1973</td>
                                     <td th:text="${record.systole}">120</td>
                                     <td th:text="${record.diastole}">80</td>
                                     <td th:text="${record.heartBeat}">40</td>

@@ -8,7 +8,9 @@ body { font-family: areal; font-size: 18px; }
 
 label { font-family: areal; font-size: 18px; }
 
-button { min-width: 110px }
+button { min-width: 110px; }
+
+textarea { padding: 9px 5px; }
 
 h4 { font-weight: bold; }
 

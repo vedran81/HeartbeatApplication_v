@@ -26,7 +26,12 @@ public class HealthRecord {
     private AppUser appUser;
 
     public HealthRecord() {
+    }
+
+    public HealthRecord(AppUser user) {
+
         this.dateOfInput = new Date();
+        this.appUser = user;
     }
 
     public int getId() {
@@ -43,6 +48,10 @@ public class HealthRecord {
 
     public void setDateOfInput(Date dateOfInput) {
         this.dateOfInput = dateOfInput;
+    }
+
+    public void setAutoDateOfInput(Date date) {
+        this.dateOfInput = date;
     }
 
     public int getSystole() {
@@ -75,5 +84,13 @@ public class HealthRecord {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 }

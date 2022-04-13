@@ -12,9 +12,10 @@ public interface AppUserRepository extends CrudRepository<AppUser, Integer> {
     List<AppUser> findAll();
     List<AppUser> findAllByType(int type);
     List<AppUser> findAllById(int id);
+    AppUser findById(int id);
     //AppUser findByPin(String pin);
-    //AppUser findByEmail(String eMail);
-    List<AppUser> findById(int id);
+
+    AppUser findByeMail(String eMail);
 
 
 

@@ -27,6 +27,7 @@ public class PatientsHealthRecordsController {
             return "redirect:/";
 
         model.addAttribute("records", healthRecordRepository.findAllByAppUserId(user.getId()));
+        model.addAttribute("user", user); // empty user for adding new
         model.addAttribute("record", new HealthRecord()); // empty user for adding new
 
         return "patient/patients_health_records";
