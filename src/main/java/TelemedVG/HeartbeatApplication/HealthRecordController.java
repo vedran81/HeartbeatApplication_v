@@ -2,12 +2,14 @@ package TelemedVG.HeartbeatApplication;
 
 import TelemedVG.HeartbeatApplication.model.HealthRecord;
 import TelemedVG.HeartbeatApplication.model.HealthRecordRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Repository
 @Controller
 @RequestMapping("patient")
 public class HealthRecordController {

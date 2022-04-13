@@ -30,7 +30,7 @@ public class TelemedLoginPageController {
         return "telemed_login_page";
     }
 
-    @GetMapping("/get_id_for_login")
+    /*@GetMapping("/get_id_for_login")
     public String userIdByLoginInfo(String eMail, String pin, Model model) {
 
         System.out.println("searching user with email: " + eMail + " and password: " + pin);
@@ -50,7 +50,7 @@ public class TelemedLoginPageController {
             return "redirect:patient/______?id=" + tryLoginUser.getId();
 
         }
-    }
+    }*/
 
 }
 
