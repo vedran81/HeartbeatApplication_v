@@ -34,6 +34,10 @@ public class HealthRecord {
         this.appUser = user;
     }
 
+    public HealthRecord(int heartBeat) {
+        this.heartBeat = heartBeat;
+    }
+
     public int getId() {
         return id;
     }
